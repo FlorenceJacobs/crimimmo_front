@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+button {
+  background-color: white;
+  border-radius: 50px;
+  padding-inline: 1.2rem;
+  padding-block: 0.9rem;
+  border: 1px solid black;
+}
+
+.pi {
+  font-size: 1.5rem
+}
+
+.p-menuitem-icon {
+  font-size: small;
+}

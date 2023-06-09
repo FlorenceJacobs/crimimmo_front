@@ -1,0 +1,18 @@
+<p-dialog header="Header" (onHide)="closeModal()" [(visible)]="modalVisibility" [style]="{ width: '75vw' }">
+    <ng-template pTemplate="header">
+        <span class="text-xl font-bold">Please insert your login credentials</span>
+    </ng-template>
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <div class="input-group p-float-label">
+            <input formControlName="email" type="email" pInputText required>
+            <label htmlFor="email">Email</label>
+            <!-- <app-form-error [control]="form.get('email')"></app-form-error> -->
+        </div>
+        <div class="input-group p-float-label">
+            <input formControlName="password" type="password" pPassword required>
+            <label for="password">Password</label>
+            <!-- <app-form-error [control]="form.get('password')"></app-form-error> -->
+        </div>
+        <p-button type="submit" (click)="closeModal()">Save</p-button>
+    </form>
+</p-dialog>

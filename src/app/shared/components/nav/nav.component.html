@@ -1,0 +1,19 @@
+<header>
+    <img class="header-img" src="../../../assets/img/crimimmo_black.png" alt="">
+    <button>Where in Belgium | When | How many travellers<i class="pi pi-search"></i></button>
+    <p-toast></p-toast>
+    <p-menu #menuLogin [model]="itemsLogin" [popup]="true"></p-menu>
+    <button *ngIf="!user" pButton type="button" (click)="menuLogin.toggle($event)" icon="pi pi-bars"
+        label="LOG IN"></button>
+    <!-- Modal Login -->
+    <app-login [modalVisibility]="loginModalVisibility" (closingModal)="toggleVisibilityToFalse($event)"></app-login>
+    <!--   Modal Subscribe -->
+    <app-subscribe [modalVisibility]="subscribeModalVisibility"
+        (closingModal)="toggleVisibilityToFalse($event)"></app-subscribe>
+
+    <!--     <nav>
+        <ul>
+            <li></li>
+        </ul>
+    </nav> -->
+</header>

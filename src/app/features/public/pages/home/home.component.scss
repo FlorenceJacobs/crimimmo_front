@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  >main {
+    padding: 20px;
+    flex-grow: 1;
+  }
+
+  >footer {
+    height: 50px;
+    border-top: 1px solid black;
+  }
+}
