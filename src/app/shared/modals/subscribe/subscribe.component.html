@@ -1,37 +1,39 @@
-<p-dialog header="Header" (onHide)="closeModal()" [(visible)]="modalVisibility" [style]="{ width: '75vw' }">
+<p-dialog header="Header" appendTo="body" (onHide)="closeModal()" [(visible)]="modalVisibility"
+    [style]="{ width: '50vw' }">
     <ng-template pTemplate="header">
         <span class="text-xl font-bold">Create a new account on Crimimmo</span>
     </ng-template>
     <form [formGroup]="form" (ngSubmit)="subscribe()">
         <div class="input-group p-float-label">
             <input formControlName="firstname" type="text" pInputText required>
-            <label htmlFor="email">Email</label>
-            <!-- <app-form-error [control]="form.get('firstname')"></app-form-error> -->
+            <label htmlFor="firstname">Firstname</label>
+            <app-form-error [control]="form.get('firstname')"></app-form-error>
         </div>
         <div class="input-group p-float-label">
             <input formControlName="lastname" type="text" pInputText required>
-            <!-- <app-form-error [control]="form.get('lastname')"></app-form-error> -->
             <label htmlFor="lastname">Lastname</label>
+            <app-form-error [control]="form.get('lastname')"></app-form-error>
         </div>
         <div class="input-group p-float-label">
-            <p-calendar formControlName="birthdate"></p-calendar>
-            <!-- <app-form-error [control]="form.get('birthdate')"></app-form-error> -->
+            <p-calendar formControlName="birthdate" appendTo="body" [showIcon]="true"></p-calendar>
             <label htmlFor="birthdate">Birthdate</label>
+            <app-form-error [control]="form.get('birthdate')"></app-form-error>
         </div>
         <div class="input-group p-float-label">
             <input formControlName="email" type="email" pInputText required>
-            <!-- <app-form-error [control]="form.get('email')"></app-form-error> -->
             <label htmlFor="email">Email</label>
+            <app-form-error [control]="form.get('email')"></app-form-error>
         </div>
         <div class="input-group p-float-label">
             <input formControlName="password" type="password" pPassword required>
-            <!-- <app-form-error [control]="form.get('password')"></app-form-error> -->
             <label htmlFor="password">Password</label>
+            <app-form-error [control]="form.get('password')"></app-form-error>
         </div>
-        <div class="input-group p-float-label">
-            <p-fileUpload formControlName="picture" required></p-fileUpload>
-            <!-- <app-form-error [control]="form.get('password')"></app-form-error> -->
-            <label htmlFor="picture">My profil picture</label>
+        <div class="input-group">
+            <input #upload type="file" (change)="uploadfile($event)" required>
+            <p-button (click)="triggerUpload()">Upload my profile picture</p-button>
+            <!-- <p-fileUpload formControlName="picture" (change)="uploadfile($event)" required></p-fileUpload> -->
+            <app-form-error [control]="form.get('picture')"></app-form-error>
         </div>
 
         <p-button type="submit" (click)="closeModal()">Save</p-button>

@@ -16,6 +16,7 @@ import { MenuModule } from 'primeng/menu';
 import { NavComponent } from './components/nav/nav.component';
 import { SubscribeComponent } from './modals/subscribe/subscribe.component';
 import { LoginComponent } from './modals/login/login.component';
+import { FormErrorComponent } from './components/form-error/form-error.component';
 
 const exportModules = [
   FormsModule,
@@ -32,18 +33,21 @@ const exportModules = [
   PasswordModule,
   FileUploadModule,
   MenuModule,
+  
 ];
 
 const exportDeclarations = [
         NavComponent,
         LoginComponent,
-        SubscribeComponent
+        SubscribeComponent,
+        FormErrorComponent
 ];
 
 
 @NgModule({
   declarations: [
   ...exportDeclarations,
+  FormErrorComponent,
   ],
   imports: [
     CommonModule,

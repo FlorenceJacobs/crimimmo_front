@@ -1,0 +1,13 @@
+<div class="txt-error" *ngIf="(control?.touched || control?.dirty) && control?.errors !== null">
+    <div *ngIf="control?.getError('required')">Required field</div>
+    <div *ngIf="control?.getError('minlength')">Too short (min: {{
+        control?.getError('minlength').requiredLength }})</div>
+    <div *ngIf="control?.getError('maxlength')">Too long (max: {{
+        control?.getError('maxlength').requiredLength }})</div>
+    <div *ngIf="control?.getError('min')">This value is too small</div>
+    <div *ngIf="control?.getError('max')">This value is too big</div>
+    <div *ngIf="control?.getError('filePictureValidator')">The file format or size is unvalid</div>
+    <div *ngIf="control?.getError('haveRequiredAge')">You are too young</div>
+    <div *ngIf="control?.getError('email')">Invalid email</div>
+    <div *ngIf="control?.getError('picture')">The file format or size is unvalidl</div>
+</div>
