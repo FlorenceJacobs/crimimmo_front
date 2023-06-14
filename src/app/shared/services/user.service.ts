@@ -20,8 +20,11 @@ export class UserService {
     for (let key in value){
       formdata.append(key, value[key])
     };
-        console.log(formdata);
-    return this.httpClient.post<any>(environment.apiUrl + '/add-owner', formdata);
+        console.log(formdata.get('firstname'), formdata.get('lastname'), formdata.get('picture'), formdata.get('birthdate'), formdata.get('password'));
+    return this.httpClient.post<any>(environment.apiUrl + '/add-owner', formdata).subscribe(
+        (response) => console.log(response),
+        (error) => console.log(error)
+    );
   }
 
   login(value: any) {

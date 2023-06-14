@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
 @Component({
@@ -6,11 +6,11 @@ import { AbstractControl } from '@angular/forms';
   templateUrl: './form-error.component.html',
   styleUrls: ['./form-error.component.scss']
 })
-export class FormErrorComponent implements OnDestroy{
+export class FormErrorComponent implements OnChanges{
  @Input()
   control: AbstractControl|null = null;
   
-  ngOnDestroy(): void {
+  ngOnChanges(): void {
     console.log(this.control);
   }
   

@@ -7,7 +7,7 @@
     <div *ngIf="control?.getError('min')">This value is too small</div>
     <div *ngIf="control?.getError('max')">This value is too big</div>
     <div *ngIf="control?.getError('filePictureValidator')">The file format or size is unvalid</div>
-    <div *ngIf="control?.getError('haveRequiredAge')">You are too young</div>
+    <div *ngIf="control?.getError('isAdult')">You are too young</div>
     <div *ngIf="control?.getError('email')">Invalid email</div>
     <div *ngIf="control?.getError('picture')">The file format or size is unvalidl</div>
 </div>
