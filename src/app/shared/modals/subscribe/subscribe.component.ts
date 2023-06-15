@@ -43,32 +43,19 @@ export class SubscribeComponent {
     this.form.get("picture")?.setValue($event.target.files[0]);
   }
 
-  subscribe() {
-    console.log("on save modal : enter in  'subscribe function'");
+  register() {
     if(this.form.invalid) {
-       console.log("on save modal : enter in  'subscribe function' : this.form.invalid" + JSON.stringify(this.form.value));
       return;
     }
-    console.log("on save modal : enter in  'subscribe function' : this.form.valid");
-
-  this.userService.subscribe(this.form.value)/*     .login({ 
+    this.userService.register(this.form.value)/* .login(this.form.value).subscribe({ 
       next: () => {
         // afficher un message
         this.messageService.add({ severity: 'success', detail: 'Bienvenue ' + user.firstname });
         // rediriger vers la page de login
         this.router.navigate(['home']);
       },
-    }) */
-  }
-
-  /*     this.userService.login(this.form.value).subscribe({ 
-      next: () => {
-        // afficher un message
-        this.messageService.add({ severity: 'success', detail: 'Bienvenue ' + user.firstname });
-        // rediriger vers la page de login
-        this.router.navigate(['home']);
-      },
-    }) */
+    }); */
+  };
 
   closeModal(){
     this.modalVisibility = false;
