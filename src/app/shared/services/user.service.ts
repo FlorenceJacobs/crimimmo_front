@@ -11,8 +11,8 @@ import jwtDecode from 'jwt-decode';
 })
 export class UserService {
 
-   user$: BehaviorSubject<{ token: string, id: number, role: string }|null> 
-    = new BehaviorSubject<{ token: string, id: number, role: string }|null>(null);
+   user$: BehaviorSubject<{ token: string, id: number, role: string, firstname : string }|null> 
+    = new BehaviorSubject<{ token: string, id: number, role: string, firstname : string }|null>(null);
 
   constructor(
     private httpClient: HttpClient,

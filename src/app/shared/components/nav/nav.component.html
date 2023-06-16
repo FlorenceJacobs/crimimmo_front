@@ -2,15 +2,19 @@
     <img class="header-img" src="../../../assets/img/crimimmo_black.png" alt="">
     <button>Where in Belgium | When | How many travellers<i class="pi pi-search"></i></button>
     <p-toast></p-toast>
-
+    <!-- Menu Owner -->
+    <div *ngIf="connectedUser">
+        <p-menu #menuOwner [model]="menuOwnerItems" [popup]="true"></p-menu>
+        <button pButton type="button" (click)="menuOwner?.toggle($event)" icon="pi pi-bars" label="Rentals"></button>
+    </div>
+    <!-- Menu Auth -->
     <p-menu #menuAuth [model]="menuAuthItems" [popup]="true"></p-menu>
     <button pButton type="button" (click)="menuAuth?.toggle($event)" icon="pi pi-bars"
-        [label]="connectedUser ? 'My account' : 'LOG IN'"></button>
+        [label]="connectedUser? connectedUser.firstname : 'LOG IN'"></button>
     <!-- Modal Login -->
     <app-login [modalVisibility]="loginModalVisibility" (closingModal)="toggleVisibilityToFalse($event)"></app-login>
-    <!--   Modal Subscribe -->
+    <!-- Modal Subscribe -->
     <app-subscribe [modalVisibility]="subscribeModalVisibility"
         (closingModal)="toggleVisibilityToFalse($event)"></app-subscribe>
-
 
 </header>

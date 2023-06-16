@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -33,11 +33,13 @@ export class LoginComponent {
     }
      this.userService.login(this.form.value).subscribe({ 
       next: () => {
+        this.userService.user$.subscribe(user => {
         // afficher un message
-        this.messageService.add({ severity: 'success', detail: 'Bienvenue ' + this.form.value.firstname });
+        this.messageService.add({ severity: 'success', detail: 'Bienvenue ' + user?.firstname });
         // rediriger vers la page de login
         this.router.navigate(['home']);
-      },
+        })
+      }
     })
   }
 

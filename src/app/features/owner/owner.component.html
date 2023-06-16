@@ -1,14 +1,1 @@
-<header>
-    <img class="header-img" src="../../../assets/img/crimimmo_black.png" alt="">
-    <button>Où en Belgique | Quand | Combien de voyageurs <i class="pi pi-search"></i></button>
-    <p-toast></p-toast>
-    <p-menu #menuLogout [model]="itemsLogout" [popup]="true"></p-menu>
-    <button *ngIf="user" pButton type="button" (click)="menuLogout.toggle($event)" icon="pi pi-bars" label="Show">
-        {{user.firstname}}</button>
-    <!--     <nav>
-        <ul>
-            <li></li>
-        </ul>
-    </nav> -->
-</header>
-<router-outlet></router-outlet>
+<app-nav></app-nav>

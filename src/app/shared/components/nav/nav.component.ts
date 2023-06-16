@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem, MessageService } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { UserModel } from '../../models/user.model';
 import { SharedModule } from '../../shared.module';
 import { UserService } from '../../services/user.service';
@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 
 export class NavComponent implements OnInit{
     menuAuthItems!: MenuItem[];
+    menuOwnerItems!: MenuItem[]; 
     connectedUser: any;
     loginModalVisibility : boolean = false;
     subscribeModalVisibility : boolean = false;
@@ -31,7 +32,6 @@ export class NavComponent implements OnInit{
     ]
 
     constructor(
-        private messageService: MessageService,
         private _userService : UserService
         ) {}
     
@@ -41,7 +41,13 @@ export class NavComponent implements OnInit{
             console.log(this.connectedUser)
             this.menuAuthItems = this.connectedUser? this.ownerMenu : this.loginMenu;
         });
+
+        this.menuOwnerItems = [
+            { label: 'My rentals', icon: 'pi pi-key', routerLink: 'my-rentals' },
+            { label: 'Add rental', icon: 'pi pi-plus', routerLink: 'add-rental' }
+        ];
     }
+
     toggleLoginModal() {
         this.loginModalVisibility = true;
     }
