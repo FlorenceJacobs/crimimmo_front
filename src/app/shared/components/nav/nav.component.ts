@@ -58,5 +58,4 @@ export class NavComponent implements OnInit{
          this.loginModalVisibility = value;
          this.subscribeModalVisibility = value;
     }
-
 };

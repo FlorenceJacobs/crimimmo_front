@@ -8,19 +8,26 @@ import { MenuModule } from 'primeng/menu';
 import { ToastModule } from 'primeng/toast';
 import { AddRentalComponent } from './pages/add-rental/add-rental.component'
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { RentalDetailsComponent } from './pages/add-rental/rental-details/rental-details.component';
+import { RentalLocationComponent } from './pages/add-rental/rental-location/rental-location.component';
+import { RentalCalendarComponent } from './pages/add-rental/rental-calendar/rental-calendar.component';
+import { StepsModule } from 'primeng/steps';
 
 @NgModule({
   declarations: [
     OwnerComponent,
     MyRentalsComponent,
     MyRentalDetailsComponent,
-    AddRentalComponent
+    AddRentalComponent,
+    RentalDetailsComponent,
+    RentalLocationComponent,
+    RentalCalendarComponent
   ],
   imports: [
     CommonModule,
     OwnerRoutingModule,
-    SharedModule
+    SharedModule,
+    StepsModule
   ]
 })
 export class OwnerModule { }
