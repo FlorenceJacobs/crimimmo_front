@@ -11,7 +11,7 @@ export class FormErrorComponent implements OnChanges{
   control: AbstractControl|null = null;
   
   ngOnChanges(): void {
-    console.log(this.control);
+    
   }
   
 }

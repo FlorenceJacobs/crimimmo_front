@@ -35,6 +35,8 @@ export class UserService {
   };
 
   login(value: any) {
+    //console.log
+    console.log(value);
      return this.httpClient.post<{ token: string }>(
       environment.apiUrl + '/login', value
     ).pipe(tap(({ token }) => {

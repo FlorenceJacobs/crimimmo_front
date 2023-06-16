@@ -6,12 +6,12 @@
         <div class="input-group p-float-label">
             <input formControlName="email" type="email" pInputText required>
             <label htmlFor="email">Email</label>
-            <!-- <app-form-error [control]="form.get('email')"></app-form-error> -->
+            <app-form-error [control]="form.get('email')"></app-form-error>
         </div>
         <div class="input-group p-float-label">
             <input formControlName="password" type="password" pPassword required>
             <label for="password">Password</label>
-            <!-- <app-form-error [control]="form.get('password')"></app-form-error> -->
+            <app-form-error [control]="form.get('password')"></app-form-error>
         </div>
         <p-button type="submit" (click)="closeModal()">Save</p-button>
     </form>

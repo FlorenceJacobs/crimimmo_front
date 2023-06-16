@@ -5,6 +5,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { SharedModule } from '../../shared.module';
 import { MessageService } from 'primeng/api';
 import { CustomValidators } from './validators/custom-validators';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-subscribe',
@@ -47,14 +48,19 @@ export class SubscribeComponent {
     if(this.form.invalid) {
       return;
     }
-    this.userService.register(this.form.value)/* .login(this.form.value).subscribe({ 
+    this.userService.register(this.form.value).subscribe(()=>{
+      this.userService.login({
+        password : this.form.value.password,
+        email : this.form.value.email
+      }).subscribe({ 
       next: () => {
         // afficher un message
-        this.messageService.add({ severity: 'success', detail: 'Bienvenue ' + user.firstname });
+        this.messageService.add({ severity: 'success', detail: 'Bienvenue ' + this.form.value.firstname });
         // rediriger vers la page de login
         this.router.navigate(['home']);
       },
-    }); */
+    });
+    })
   };
 
   closeModal(){

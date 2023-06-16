@@ -31,14 +31,14 @@ export class LoginComponent {
     if(this.form.invalid) {
       return;
     }
-/*     this.userService.login(this.form.value).subscribe({ 
+     this.userService.login(this.form.value).subscribe({ 
       next: () => {
         // afficher un message
-        this.messageService.add({ severity: 'success', detail: 'Bienvenue ' + user.firstname });
+        this.messageService.add({ severity: 'success', detail: 'Bienvenue ' + this.form.value.firstname });
         // rediriger vers la page de login
         this.router.navigate(['home']);
       },
-    }) */
+    })
   }
 
   closeModal(){
