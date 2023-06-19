@@ -13,7 +13,6 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./subscribe.component.scss']
 })
 export class SubscribeComponent {
-
   @ViewChild("upload") uploadButton! : ElementRef;
   @Input() modalVisibility! : boolean;
   @Output() closingModal = new EventEmitter<boolean>();

@@ -1,0 +1,32 @@
+<p>Describe your property :</p>
+
+<p>Add a room :
+    <button type="button" (click)="addRoom()">Add a room description</button>
+</p>
+
+<form [formGroup]="form" (ngSubmit)="sendInDB()">
+    <ng-container formArrayName="rentalRoomsArray">
+        <ng-container *ngFor="let roomForm of rentalRoomsArray; let i = index">
+            <div [formGroup]="roomForm">
+                <div class="input-group p-float-label">
+                    <p-dropdown [options]="rentalRoomTypes" formControlName="rentalRoomType"
+                        [style]="{width:'100%'}"></p-dropdown>
+                    <label htmlFor="rentalRoomType">Room's type</label>
+                </div>
+                <div class="input-group p-float-label">
+                    <textarea formControlName="description" rows="5" cols="30" type="text" pInputTextarea></textarea>
+                    <label htmlFor="description">Short description</label>
+                    <app-form-error [control]="form.get('description')"></app-form-error>
+                </div>
+                <div class="input-group">
+                    <!-- <input #upload type="file" formControlName="picture" (change)="uploadfile($event)" required> -->
+                    <p-button (click)="triggerUpload()">Upload rental's profil picture</p-button>
+                    <app-form-error [control]="form.get('picture')"></app-form-error>
+                </div>
+                <button type="button" (click)="delRoom(i)">Delete this room</button>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <p-button type="submit">Save</p-button>
+</form>

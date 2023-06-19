@@ -1,1 +1,47 @@
-<p>rental-details works!</p>
+<form [formGroup]="form" (ngSubmit)="sendInDB()">
+    <div class="input-group p-float-label">
+        <input formControlName="name" type="text" required pInputText>
+        <label htmlFor="name">Property name</label>
+        <app-form-error [control]="form.get('name')"></app-form-error>
+    </div>
+    <div class="input-group p-float-label">
+        <textarea formControlName="description" rows="5" cols="30" type="text" pInputTextarea></textarea>
+        <label htmlFor="description">Short description</label>
+        <app-form-error [control]="form.get('description')"></app-form-error>
+    </div>
+    <div class="input-group p-float-label">
+        <p-dropdown [options]="rentalTypes" formControlName="rentalType" [style]="{width:'100%'}"></p-dropdown>
+        <label htmlFor="rentalType">Type of your property</label>
+    </div>
+    <div class="input-group p-float-label">
+        <p-inputNumber formControlName="nbrPersMax" inputId="integeronly" [showButtons]="true" [step]="1"
+            [min]="1"></p-inputNumber>
+        <label htmlFor="nbrPersMax">Number maximum of travellers</label>
+        <app-form-error [control]="form.get('nbrPersMax')"></app-form-error>
+    </div>
+    <div class="input-group p-float-label">
+        <p-inputNumber formControlName="nightPrice" mode="currency" currency="EUR" locale="fr-FR"
+            [minFractionDigits]="2"></p-inputNumber>
+        <label htmlFor="nightPrice">Price per night</label>
+        <app-form-error [control]="form.get('nightPrice')"></app-form-error>
+    </div>
+    <div class="input-group p-float-label">
+        <p-inputNumber formControlName="weekPrice" mode="currency" currency="EUR" locale="fr-FR"
+            [minFractionDigits]="2"></p-inputNumber>
+        <label htmlFor="weekPrice">Price per week</label>
+        <app-form-error [control]="form.get('weekPrice')"></app-form-error>
+    </div>
+    <div class="input-group p-float-label">
+        <p-inputNumber formControlName="weekendPrice" mode="currency" currency="EUR" locale="fr-FR"
+            [minFractionDigits]="2"></p-inputNumber>
+        <label htmlFor="weekendPrice">Price per week-end</label>
+        <app-form-error [control]="form.get('weekendPrice')"></app-form-error>
+    </div>
+    <div class="input-group">
+        <input #upload formControlName="picture" type="file" (change)="uploadfile($event)" required>
+        <p-button (click)="triggerUpload()">Upload rental's profil picture</p-button>
+        <app-form-error [control]="form.get('picture')"></app-form-error>
+    </div>
+
+    <p-button type="submit">Next Step</p-button>
+</form>

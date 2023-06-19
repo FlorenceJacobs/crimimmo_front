@@ -12,6 +12,10 @@ import { RentalDetailsComponent } from './pages/add-rental/rental-details/rental
 import { RentalLocationComponent } from './pages/add-rental/rental-location/rental-location.component';
 import { RentalCalendarComponent } from './pages/add-rental/rental-calendar/rental-calendar.component';
 import { StepsModule } from 'primeng/steps';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DropdownModule } from 'primeng/dropdown';
+import { RentalRoomsComponent } from './pages/add-rental/rental-rooms/rental-rooms.component';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -21,13 +25,18 @@ import { StepsModule } from 'primeng/steps';
     AddRentalComponent,
     RentalDetailsComponent,
     RentalLocationComponent,
-    RentalCalendarComponent
+    RentalCalendarComponent,
+    RentalRoomsComponent,
+
   ],
   imports: [
     CommonModule,
     OwnerRoutingModule,
     SharedModule,
-    StepsModule
+    StepsModule,
+    InputNumberModule,
+    DropdownModule,
+    InputTextareaModule
   ]
 })
 export class OwnerModule { }

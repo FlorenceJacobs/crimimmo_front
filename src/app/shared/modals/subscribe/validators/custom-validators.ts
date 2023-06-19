@@ -37,5 +37,29 @@ export class CustomValidators {
       return null;
     }
   }
+
+    public static largerThan(otherControl: AbstractControl|null, fieldName: string): ValidatorFn {
+      return (control: AbstractControl): ValidationErrors | null => {
+          if(!control.value || !otherControl?.value) {
+              return null;
+          }
+          if(control.value < otherControl.value) {
+              return { 'fileSizeError': true  }
+          }
+          return null;
+      }
+  }
+
+     public static OneOfTypes(types : string[]) : ValidatorFn{
+        return (control : AbstractControl) : ValidationErrors | null => {
+          let value = control.value;
+          if(!value) return null;
+          if (!types.includes(value)) {
+            return { 'RentalTypeError' : true }
+          }
+          return null;
+    }
+  }
+
 }
 

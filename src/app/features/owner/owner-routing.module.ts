@@ -7,6 +7,7 @@ import { AddRentalComponent } from './pages/add-rental/add-rental.component';
 import { RentalDetailsComponent } from './pages/add-rental/rental-details/rental-details.component';
 import { RentalLocationComponent } from './pages/add-rental/rental-location/rental-location.component';
 import { RentalCalendarComponent } from './pages/add-rental/rental-calendar/rental-calendar.component';
+import { RentalRoomsComponent } from './pages/add-rental/rental-rooms/rental-rooms.component';
 
 const routes: Routes = [
   { path : '', component : OwnerComponent, children:[
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path : 'add-rental', component : AddRentalComponent, children : [
       { path : '', redirectTo : 'add-rental', pathMatch:'full'},
       { path : 'details', component : RentalDetailsComponent },
+      { path : 'rooms', component : RentalRoomsComponent },
       { path : 'location', component : RentalLocationComponent },
       { path : 'calendar', component : RentalCalendarComponent },
     ] },

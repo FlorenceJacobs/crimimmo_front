@@ -20,6 +20,10 @@ export class AddRentalComponent implements OnInit {
                 label: 'Details',
                 routerLink: 'details'
             },
+                        {
+                label: 'Rooms',
+                routerLink: 'rooms'
+            },
             {
                 label: 'Location',
                 routerLink: 'location'

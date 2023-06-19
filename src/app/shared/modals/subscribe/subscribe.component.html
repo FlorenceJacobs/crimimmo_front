@@ -30,7 +30,7 @@
             <app-form-error [control]="form.get('password')"></app-form-error>
         </div>
         <div class="input-group">
-            <input #upload type="file" (change)="uploadfile($event)" required>
+            <input #upload type="file" formControlName="picture" (change)="uploadfile($event)" required>
             <p-button (click)="triggerUpload()">Upload my profile picture</p-button>
             <!-- <p-fileUpload formControlName="picture" (change)="uploadfile($event)" required></p-fileUpload> -->
             <app-form-error [control]="form.get('picture')"></app-form-error>
